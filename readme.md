@@ -1,6 +1,6 @@
 # Documently_Model
 
-![Alt Text](./images/Data mining  Unsupervised learning.png)
+![Alt Text](./images/Documently.png)
 
 
 ## Overview
