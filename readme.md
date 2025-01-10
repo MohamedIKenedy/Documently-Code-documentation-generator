@@ -1,5 +1,8 @@
 # Documently_Model
 
+![Alt Text](./images/Data mining  Unsupervised learning.png)
+
+
 ## Overview
 Documently_Model is a machine learning model trained for document processing and analysis tasks. The model demonstrates strong performance across multiple evaluation metrics including BLEU and ROUGE scores.
 
