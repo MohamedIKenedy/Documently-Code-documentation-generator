@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  model:
+    build: .
+    volumes:
+      - .:/app
+      - mlflow_data:/app/mlflow
+    ports:
+      - "5000:5000"
+    environment:
+      - MLFLOW_TRACKING_URI=file:///app/mlflow
+      - MODEL_NAME=Documently_Model
+      - MODEL_VERSION=1
+    command: python src/train.py
+
+  mlflow:
+    image: python:3.9-slim
+    volumes:
+      - mlflow_data:/mlflow
+    ports:
+      - "5001:5000"
+    environment:
+      - MLFLOW_TRACKING_URI=file:///mlflow
+    command: >
+      bash -c "pip install mlflow && mlflow server 
+      --backend-store-uri file:///mlflow 
+      --default-artifact-root file:///mlflow 
+      --host 0.0.0.0"
+
+volumes:
+  mlflow_data:
